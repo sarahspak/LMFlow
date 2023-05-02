@@ -17,9 +17,10 @@ mkdir -p ${output_dir} ${log_dir}
 
 deepspeed ${deepspeed_args} \
   examples/finetune.py \
-    --model_name_or_path facebook/galactica-1.3b \
+    --model_name_or_path /home/ubuntu/ec2-scripts/llama-7b-hf \
     --dataset_path ${dataset_path} \
-    --output_dir ${output_dir} --overwrite_output_dir \
+    --output_dir ${output_dir} \
+    --overwrite_output_dir \
     --num_train_epochs 0.01 \
     --learning_rate 1e-4 \
     --block_size 512 \
@@ -28,7 +29,7 @@ deepspeed ${deepspeed_args} \
     --lora_r 8 \
     --save_aggregated_lora 0\
     --deepspeed configs/ds_config_zero2.json \
-    --bf16 \
+    --fp16 \
     --run_name finetune_with_lora \
     --validation_split_percentage 0 \
     --logging_steps 20 \
