@@ -15,7 +15,7 @@ dataset_path=${project_dir}/data/alpaca/train
 
 mkdir -p ${output_dir} ${log_dir}
 
-python -m torch.distributed.launch --nproc_per_node=8 --nnodes=1 \
+python3 -m torch.distributed.launch --nproc_per_node=8 --nnodes=1 \
   examples/finetune.py \
     --model_name_or_path /home/ubuntu/ec2-scripts/llama-7b-hf \
     --dataset_path ${dataset_path} \
