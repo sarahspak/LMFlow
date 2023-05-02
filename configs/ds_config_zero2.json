@@ -1,4 +1,11 @@
 {
+    "autotuning": {
+        "enabled": true,
+        "arg_mappings": {
+            "train_micro_batch_size_per_gpu": 
+                "--per_device_train_batch_size"
+        }
+},
     "fp16": {
         "enabled": "auto",
         "loss_scale": 0,
